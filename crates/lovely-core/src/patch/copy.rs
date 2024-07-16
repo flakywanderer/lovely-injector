@@ -42,9 +42,6 @@ impl CopyPatch {
                     rope.insert(rope.byte_len(), "\n");
                     rope.insert(rope.byte_len(), &contents);
                 }
-                CopyPosition::At => {
-                    log::warn!("Did not overwrite buffer with a Copy patch in the At position");
-                }
             }
         }
 
