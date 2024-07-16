@@ -28,6 +28,14 @@ pub static LUA_LIB: Lazy<Library> = Lazy::new(|| {
 });
 
 
+#[cfg(target_os = "linux")]
+pub static LUA_LIB: Lazy<Library> = Lazy::new(|| {
+    unsafe {
+        Library::new("liblua5.1.so").unwrap()
+    }
+});
+
+
 pub static lua_call: Lazy<Symbol<unsafe extern "C" fn(*mut LuaState, isize, isize)>> = Lazy::new(|| {
     unsafe {
         LUA_LIB.get(b"lua_call").unwrap()
