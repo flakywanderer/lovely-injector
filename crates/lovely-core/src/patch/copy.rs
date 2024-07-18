@@ -39,8 +39,8 @@ impl CopyPatch {
                     rope.insert(0, &contents);
                 }
                 CopyPosition::Append => {
-                    rope.insert(rope.byte_len(), &contents);
                     rope.insert(rope.byte_len(), "\n");
+                    rope.insert(rope.byte_len(), &contents);
                 }
             }
         }
