@@ -1,5 +1,7 @@
 use std::{
-    collections::VecDeque, ffi::{c_void, CString}, ptr, slice
+    collections::VecDeque,
+    ffi::{c_void, CString},
+    ptr, slice,
 };
 
 use itertools::Itertools;
@@ -135,9 +137,7 @@ pub unsafe extern "C" fn override_print(state: *mut LuaState) -> isize {
         lua_settop(state, -(1) - 1);
     }
 
-    let msg = out
-        .into_iter()
-        .join("\t");
+    let msg = out.into_iter().join("\t");
 
     info!("[G] {msg}");
 
